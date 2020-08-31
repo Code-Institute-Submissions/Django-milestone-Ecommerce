@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -76,11 +77,15 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://ibculxpaejljjk:713e533063c7e86f046da8c4dffb21d09bb3db999f185f98388174a05e530ed3@ec2-54-243-67-199.compute-1.amazonaws.com:5432/d2e38na8fimhsr')
 }
 
 
